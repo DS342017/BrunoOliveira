@@ -13,7 +13,7 @@ namespace MVC.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            HttpResponseMessage response = 
+            HttpResponseMessage response = GlobalVariable.WebApiClient.GetAsync("Pedidos").Result;
                
             return View(response.Content.ReadAsAsync<IEnumerable<Models.PedidoMVC>>().Result);
         }
